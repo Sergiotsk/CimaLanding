@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMAweb - Inglés y Apoyo Escolar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Facebook SDK (Disabled for localhost development) -->
+    <div id="fb-root"></div>
+    <script>
+        // Detect if running on localhost
+        const isLocalhost = window.location.hostname === 'localhost' || 
+                           window.location.hostname === '127.0.0.1' || 
+                           window.location.hostname === '' ||
+                           window.location.protocol === 'file:';
+        
+        if (!isLocalhost) {
+            // Only load Facebook SDK in production
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: '1234567890123456', // Reemplaza con tu App ID real
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v18.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/es_LA/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        } else {
+            // For localhost, we'll use the fallback system
+            console.log('🚀 Desarrollo local detectado - usando sistema de comentarios local');
+        }
+    </script>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="imgs/LOGO_20_05_2025-RB.png" alt="Logo Instituto CIMA" class="me-2" style="height: 60px; width: auto;">
+                Cimaweb
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6 text-white">
+                    <h1 class="display-4 fw-bold mb-4">Aprende Inglés con Nosotros</h1>
+                    <p class="lead mb-4">Clases dinámicas y personalizadas para todas las edades. Mejora tus habilidades lingüísticas con nuestros profesores certificados.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#cursos" class="btn btn-warning btn-lg fw-bold px-4">Ver Cursos</a>
+                        <a href="#contacto" class="btn btn-outline-light btn-lg">Contáctanos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cursos Section -->
+    <section id="cursos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nuestros Cursos</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Niños aprendiendo inglés" style="height: 200px; object-fit: cover;" loading="lazy">
+                        <div class="card-body text-center p-4">
+                            <h3>Inglés para Niños</h3>
+                            <p>Clases divertidas y dinámicas para que los más pequeños aprendan inglés de forma natural.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Adolescentes estudiando" style="height: 200px; object-fit: cover;" loading="lazy">
+                        <div class="card-body text-center p-4">
+                            <h3>Inglés para Adolescentes</h3>
+                            <p>Preparación para exámenes internacionales y refuerzo escolar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 overflow-hidden">
+                        <img src="imgs/pexels-karolina-grabowska-7692564.jpg" class="card-img-top" alt="Estudiante recibiendo apoyo escolar" style="height: 200px; object-fit: cover;" loading="lazy">
+                        <div class="card-body text-center p-4">
+                            <h3>Apoyo Escolar</h3>
+                            <p>Clases de apoyo en todas las materias para estudiantes de primaria y secundaria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Últimas Noticias</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Aprender inglés" style="height: 200px; object-fit: cover;" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">Consejos para Aprender Inglés</h5>
+                            <p class="card-text">Descubre los mejores métodos para mejorar tu inglés rápidamente.</p>
+                            <a href="#" class="btn btn-primary w-100">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Técnicas de estudio" style="height: 200px; object-fit: cover;" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">Técnicas de Estudio Efectivas</h5>
+                            <p class="card-text">Aprende a estudiar de manera más eficiente y mejora tus calificaciones.</p>
+                            <a href="#" class="btn btn-primary w-100">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 overflow-hidden">
+                        <img src="https://images.pexels.com/photos/6238056/pexels-photo-6238056.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Preparación de exámenes" style="height: 200px; object-fit: cover;" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">Preparación para Exámenes</h5>
+                            <p class="card-text">Consejos para afrontar con éxito tus exámenes finales.</p>
+                            <a href="#" class="btn btn-primary w-100">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more blog posts as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Lo que dicen nuestros alumnos y padres</h2>
+                <p class="lead text-muted">Conoce las experiencias de quienes ya forman parte de nuestra comunidad educativa</p>
+            </div>
+            
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2"></button>
+                </div>
+                
+                <div class="carousel-inner">
+                    <!-- Testimonial 1 -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        <div class="stars mb-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            "Mi hija comenzó en CIMA con muy poco conocimiento de inglés y ahora puede mantener conversaciones fluidas. Los profesores son muy pacientes y utilizan métodos dinámicos que hacen que el aprendizaje sea divertido."
+                                        </blockquote>
+                                        <div class="testimonial-author">
+                                            <div class="author-avatar">
+                                                <i class="fas fa-user-circle"></i>
+                                            </div>
+                                            <div class="author-info">
+                                                <h5>María González</h5>
+                                                <p>Madre de alumna - Curso de Inglés para Niños</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        <div class="stars mb-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            "Gracias al apoyo escolar de CIMA, logré mejorar mis calificaciones en matemáticas y ciencias. Los profesores explican de manera clara y siempre están dispuestos a ayudar con las dudas."
+                                        </blockquote>
+                                        <div class="testimonial-author">
+                                            <div class="author-avatar">
+                                                <i class="fas fa-user-circle"></i>
+                                            </div>
+                                            <div class="author-info">
+                                                <h5>Sebastián Rodríguez</h5>
+                                                <p>Estudiante de Secundaria - Apoyo Escolar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-content">
+                                        <div class="stars mb-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            "El ambiente en CIMA es excepcional. Mi hijo no solo mejoró su inglés, sino que también ganó confianza para expresarse. Recomiendo totalmente este instituto."
+                                        </blockquote>
+                                        <div class="testimonial-author">
+                                            <div class="author-avatar">
+                                                <i class="fas fa-user-circle"></i>
+                                            </div>
+                                            <div class="author-info">
+                                                <h5>Carlos Mendoza</h5>
+                                                <p>Padre de alumno - Inglés para Adolescentes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+            
+            <!-- Additional Testimonials Carousel -->
+            <div class="mt-5">
+                <div class="text-center mb-4">
+                    <h3>Más opiniones de nuestra comunidad</h3>
+                    <p class="text-muted">Comentarios reales de estudiantes y padres</p>
+                </div>
+                
+                <div id="additionalTestimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#additionalTestimonialsCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#additionalTestimonialsCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#additionalTestimonialsCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#additionalTestimonialsCarousel" data-bs-slide-to="3"></button>
+                    </div>
+                    
+                    <div class="carousel-inner">
+                        <!-- Additional Testimonial 1 -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Ana Martínez</h6>
+                                                        <small class="text-muted">hace 2 días</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Excelente instituto! Mi hijo mejoró muchísimo su nivel de inglés. Los profesores son muy dedicados y pacientes. 100% recomendado! 👏"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 24</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 3</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Roberto Silva</h6>
+                                                        <small class="text-muted">hace 1 semana</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Las clases de apoyo escolar son fantásticas. Mi hija subió sus notas considerablemente. Gracias CIMA! 🎓"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 18</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Testimonial 2 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Laura Fernández</h6>
+                                                        <small class="text-muted">hace 3 días</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Ambiente muy profesional y cálido a la vez. Los chicos se sienten cómodos y aprenden sin presión. Súper recomendable! ⭐"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 31</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 7</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Diego Ramírez</h6>
+                                                        <small class="text-muted">hace 5 días</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Muy buena metodología de enseñanza. Los horarios son flexibles y se adaptan a nuestras necesidades. 👍"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 15</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 2</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Testimonial 3 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Patricia López</h6>
+                                                        <small class="text-muted">hace 1 semana</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Mi experiencia con CIMA ha sido excelente. Los profesores realmente se preocupan por el progreso de cada alumno. 💯"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 27</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Martín Castro</h6>
+                                                        <small class="text-muted">hace 4 días</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Clases dinámicas y entretenidas. Mi hijo siempre sale contento de las clases. Muy profesionales! 🏆"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 22</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 6</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Testimonial 4 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Valeria Morales</h6>
+                                                        <small class="text-muted">hace 6 días</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Increíble la paciencia y dedicación de los profesores. Mi hija con dificultades de aprendizaje ha progresado mucho! 🙌"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 35</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="facebook-style-comment">
+                                                <div class="comment-header">
+                                                    <div class="user-avatar">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>Alejandro Torres</h6>
+                                                        <small class="text-muted">hace 2 semanas</small>
+                                                    </div>
+                                                    <div class="stars-small">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="comment-text">"Excelente relación calidad-precio. Los resultados hablan por sí solos. Mi hijo aprobó todos los exámenes! 📚"</p>
+                                                <div class="comment-actions">
+                                                    <span class="like-count"><i class="fas fa-thumbs-up"></i> 19</span>
+                                                    <span class="comment-count"><i class="fas fa-comment"></i> 3</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Carousel Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#additionalTestimonialsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#additionalTestimonialsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Facebook Comments Plugin Section -->
+            <div class="mt-5">
+                <div class="text-center mb-4">
+                    <h3>Déjanos tu comentario</h3>
+                    <p class="text-muted">Comparte tu experiencia con nuestra comunidad</p>
+                </div>
+                
+                <div class="facebook-comments-container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="facebook-comments-wrapper">
+                                <!-- Facebook Comments Plugin -->
+                                <div class="fb-comments" 
+                                     data-href="https://institutocima.com/testimonios" 
+                                     data-width="100%" 
+                                     data-numposts="8"
+                                     data-colorscheme="light"
+                                     data-order-by="social"
+                                     data-lazy="true"
+                                     data-mobile="auto">
+                                </div>
+                                
+                                <!-- Loading indicator -->
+                                <div class="facebook-loading" id="fb-loading">
+                                    <div class="d-flex justify-content-center align-items-center py-4">
+                                        <div class="spinner-border text-primary me-3" role="status">
+                                            <span class="visually-hidden">Cargando...</span>
+                                        </div>
+                                        <span class="text-muted">Cargando comentarios de Facebook...</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Enhanced fallback for when Facebook plugin is not loaded -->
+                                <div class="facebook-fallback" id="fb-fallback" style="display: none;">
+                                    <div class="alert alert-info border-0 shadow-sm">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="facebook-icon-wrapper me-3">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="alert-heading mb-1">¡Únete a nuestra comunidad!</h5>
+                                                <p class="mb-0">Comparte tu experiencia y lee más testimonios en Facebook</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2 flex-wrap">
+                                            <a href="https://www.facebook.com/profile.php?id=100063805800155&sk=about" target="_blank" class="btn btn-primary btn-sm">
+                                                <i class="fab fa-facebook-f me-1"></i> Ir a Facebook
+                                            </a>
+                                            <button class="btn btn-outline-primary btn-sm" onclick="retryFacebookComments()">
+                                                <i class="fas fa-redo me-1"></i> Reintentar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Alternative comment form -->
+                                    <div class="mt-4">
+                                        <h6>Déjanos tu comentario:</h6>
+                                        <form class="simple-comment-form">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <input type="text" class="form-control" placeholder="Tu nombre" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <input type="email" class="form-control" placeholder="Tu email" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="rating-input">
+                                                    <label class="form-label">Tu calificación:</label>
+                                                    <div class="star-rating">
+                                                        <i class="far fa-star" data-rating="1"></i>
+                                                        <i class="far fa-star" data-rating="2"></i>
+                                                        <i class="far fa-star" data-rating="3"></i>
+                                                        <i class="far fa-star" data-rating="4"></i>
+                                                        <i class="far fa-star" data-rating="5"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <textarea class="form-control" rows="4" placeholder="Comparte tu experiencia con Instituto CIMA..." required></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-paper-plane me-1"></i> Enviar Comentario
+                                            </button>
+                                        </form>
+                                        
+                                        <!-- Local Comments Display -->
+                                        <div class="local-comments mt-4" id="local-comments">
+                                            <h6 class="mb-3">Comentarios recientes:</h6>
+                                            <div class="local-comment-item">
+                                                <div class="d-flex align-items-start mb-3">
+                                                    <div class="comment-avatar me-3">
+                                                        <i class="fas fa-user-circle"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="d-flex justify-content-between align-items-start mb-1">
+                                                            <h6 class="mb-0">Demo Usuario</h6>
+                                                            <small class="text-muted">hace 5 min</small>
+                                                        </div>
+                                                        <div class="comment-stars mb-2">
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                        </div>
+                                                        <p class="mb-0 text-muted">¡Excelente instituto! Este es un comentario de prueba para desarrollo local. La interfaz se ve genial.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Mode Indicator -->
+    <div class="dev-mode-indicator" id="dev-indicator" style="display: none;">
+        <i class="fas fa-code me-1"></i> Modo Desarrollo
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Contáctanos</h2>
+                <p class="lead text-muted">¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Envíanos un mensaje</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre completo</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Enviar Mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Información de Contacto</h4>
+                            <div class="d-flex mb-4">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Dirección</h6>
+                                    <p class="mb-0 text-muted">Av. Principal 1234, Ciudad</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Teléfono</h6>
+                                    <p class="mb-0 text-muted">+54 9 11 1234-5678</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Email</h6>
+                                    <p class="mb-0 text-muted">info@institutocima.com</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h6 class="mb-3">Síguenos en redes</h6>
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="text-primary"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                                    <a href="#" class="text-primary"><i class="fab fa-whatsapp fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Instituto CIMA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protegiendo a tus hijos en internet - Blog Instituto CIMA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .article-header {
+            background: linear-gradient(rgba(220, 53, 69, 0.8), rgba(220, 53, 69, 0.7)), 
+                        url('https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 60px;
+            margin-bottom: 40px;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-img {
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .tips-box {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .related-article {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .related-article:hover {
+            transform: translateY(-5px);
+        }
+        
+        .sources-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .sources-section h4 {
+            color: #495057;
+            margin-bottom: 20px;
+        }
+        
+        .sources-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sources-section li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .sources-section li:before {
+            content: "📚";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../imgs/LOGO_20_05_2025-RB.png" alt="Logo Instituto CIMA" class="me-2" style="height: 50px; width: auto;">
+                Cima
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#cursos">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-danger mb-3">Seguridad Digital</span>
+                    <h1 class="display-4 fw-bold mb-3">Protegiendo a tus hijos en internet: Guía para padres</h1>
+                    <p class="lead">Una guía completa para garantizar la seguridad digital de los más pequeños en el mundo online.</p>
+                    <div class="text-muted">20 de Agosto, 2025 · 12 min de lectura</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="container">
+        <div class="row justify-content-center">
+            <div class="article-content">
+                <p class="lead">En la actualidad, internet es parte central de la vida de niños y adolescentes. El acceso a plataformas educativas, redes sociales, juegos online y nuevas tecnologías ofrece enormes ventajas formativas y de socialización. Pero, a la par del aprendizaje y la diversión, emergen riesgos para los más pequeños: desde el contacto con desconocidos, la exposición a contenidos inapropiados, el ciberacoso, el grooming, hasta el robo de identidad o el mal uso de la inteligencia artificial.</p>
+                
+                <h2 class="mt-5 mb-4">El rol activo de los padres en la seguridad digital</h2>
+                
+                <div class="highlight-box">
+                    <h4 class="mt-0">Regla fundamental</h4>
+                    <p class="mb-0"><strong>Acompañá y conversá.</strong> Hablar desde pequeños sobre la seguridad en internet, explicar los riesgos y escuchar con atención las dudas o experiencias online de tus hijos crea un espacio de confianza. No se trata de controlar, sino de construir juntos pautas de navegación responsable y saludable.</p>
+                </div>
+                
+                <h4 class="mt-4">Involúcrate en sus actividades online</h4>
+                <p>Preguntales qué apps, juegos y sitios usan, cuáles son sus creadores de contenido favoritos y con quién interactúan. Esto permite monitorear y supervisar, sin invadir la privacidad.</p>
+                
+                <h4 class="mt-4">Aprender juntos</h4>
+                <p>Internet evoluciona constantemente. Actualizate sobre nuevas tendencias, desafíos y herramientas. Eso te permitirá anticiparte a posibles problemas e identificar oportunidades educativas.</p>
+                
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Familia usando tecnología juntos" class="img-fluid article-img">
+                
+                <h2 class="mt-5 mb-4">Normas claras y acompañamiento digital</h2>
+                
+                <p>Establecer reglas básicas de uso resulta clave. Pactá límites razonables sobre el tiempo de pantalla, los horarios y los espacios de uso de dispositivos (por ejemplo, que el uso de PC sea en áreas comunes de la casa). Marcá qué tipo de juegos, redes o plataformas son adecuados para cada edad y, si es necesario, utilizá aplicaciones de control parental para regular el acceso a contenidos peligrosos y programar horarios de navegación.</p>
+                
+                <h3 class="mt-4 mb-3">Privacidad como valor central</h3>
+                
+                <div class="tips-box">
+                    <h5><i class="fas fa-shield-alt text-info me-2"></i>Consejos de privacidad esenciales</h5>
+                    <ul class="mb-0">
+                        <li>Desde pequeños deben aprender a no compartir información personal (nombre completo, dirección, contraseñas, lugar de estudio o de juego, fotos o videos) con extraños en internet</li>
+                        <li>Explicáles cómo identificar sitios web seguros (mirar el candado en la barra de direcciones, preferir https)</li>
+                        <li>Configurá la privacidad de redes sociales: enseñáles a usar seudónimos, perfiles privados y a limitar el alcance de sus publicaciones a personas conocidas</li>
+                    </ul>
+                </div>
+                
+                <h2 class="mt-5 mb-4">Peligros frecuentes online y cómo prevenirlos</h2>
+                
+                <h3 class="mt-4 mb-3">1. Grooming y acoso</h3>
+                
+                <div class="warning-box">
+                    <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>¿Qué es el grooming?</h5>
+                    <p class="mb-0">El grooming es el acoso sexual ejercido por adultos que fingen ser menores para ganarse la confianza de niños y adolescentes y obtener fotos, información privada o concertar encuentros.</p>
+                </div>
+                
+                <h4 class="mt-4">Para prevenirlo:</h4>
+                <ul>
+                    <li>No prohibas los "amigos virtuales", pero dialogá abiertamente sobre su identidad</li>
+                    <li>Explicá cómo un desconocido puede simular ser un par y qué señales indicarían una situación sospechosa</li>
+                    <li>Configurá controles parentales en plataformas, juegos, apps y dispositivos</li>
+                    <li><strong>Denuncia:</strong> Ante sospecha o confirmación, reuní toda la evidencia (capturas de pantalla, mensajes), NO borres el contenido y realizá la denuncia en fiscalía, comisaría y líneas habilitadas como el 102 o 137</li>
+                </ul>
+                
+                <h3 class="mt-4 mb-3">2. Ciberacoso y bullying digital</h3>
+                
+                <p>El ciberacoso implica insultos, amenazas, exclusión o difamación online. Puede tener graves consecuencias emocionales.</p>
+                
+                <ul>
+                    <li><strong>Promove la comunicación sincera:</strong> Que tus hijos sepan reconocer y denunciar cualquier agresión, tanto si son víctimas como testigos</li>
+                    <li>Enseñales a bloquear y reportar agresores y a guardar evidencias de los mensajes o publicaciones hostiles</li>
+                    <li>Observá cambios de actitud tras usar internet (tristeza, aislamiento, baja del rendimiento escolar) como posibles alertas</li>
+                </ul>
+                
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Niño preocupado frente a una computadora" class="img-fluid article-img">
+                
+                <h3 class="mt-4 mb-3">3. Amenazas técnicas: malware, robo de identidad y datos</h3>
+                
+                <div class="tips-box">
+                    <h5><i class="fas fa-lock text-primary me-2"></i>Medidas de seguridad técnica</h5>
+                    <ul class="mb-0">
+                        <li>Usá antivirus y actualizá frecuentemente los dispositivos</li>
+                        <li>Enseñales a crear contraseñas seguras (combinando letras, números y símbolos), y no reutilizarlas</li>
+                        <li>Nunca compartas claves por internet ni respondas mensajes sospechosos</li>
+                        <li>Explicá que la huella digital es permanente: toda publicación es difícil de borrar y puede ser usada por delincuentes o empleadores el día de mañana</li>
+                    </ul>
+                </div>
+                
+                <h2 class="mt-5 mb-4">Herramientas modernas: inteligencia artificial y nuevas tendencias</h2>
+                
+                <p>Las IA y chatbots pueden ayudar al aprendizaje, pero también presentan desafíos éticos y de privacidad. Debés enseñar a desconfiar de respuestas automáticas, comprobar información y NUNCA brindar datos personales a sistemas que no conocen.</p>
+                
+                <ul>
+                    <li>Revisá juntos configuraciones de privacidad y datos en plataformas con inteligencia artificial</li>
+                    <li>Mostrá ejemplos de imágenes o videos falsos generados con IA y analizá cómo discernir lo verdadero de lo manipulado</li>
+                </ul>
+                
+                <h2 class="mt-5 mb-4">Estrategias para el diálogo y la confianza</h2>
+                
+                <div class="highlight-box">
+                    <h4 class="mt-0">Principios fundamentales</h4>
+                    <ul class="mb-0">
+                        <li><strong>No invadas, acompañá:</strong> Respetá la privacidad, pero demostrá interés. Revisá redes y dispositivos juntos, no a escondidas</li>
+                        <li><strong>Sé ejemplo:</strong> No compartas imágenes o datos de tus hijos sin consentimiento (incluso en grupos familiares o redes)</li>
+                        <li><strong>Hablá sobre el consentimiento:</strong> El respeto y la importancia de pedir ayuda ante cualquier situación incómoda o que les haga sentir mal</li>
+                    </ul>
+                </div>
+                
+                <h2 class="mt-5 mb-4">Consejos esenciales y recursos de ayuda</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Acciones preventivas</h4>
+                        <ul>
+                            <li>Conversá y pactá límites razonables de uso</li>
+                            <li>Enseñales pensamiento crítico y protección de la privacidad</li>
+                            <li>Preparalos para identificar y denunciar situaciones de riesgo</li>
+                            <li>Usá y actualizá herramientas de control parental</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>En caso de problemas</h4>
+                        <ul>
+                            <li>Conservá la evidencia ante hechos de acoso o amenazas</li>
+                            <li>No borres mensajes ni archivos recibidos</li>
+                            <li>Acudí a recursos oficiales de orientación y denuncia</li>
+                            <li>Línea 137 y línea 102 en Argentina</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h5><i class="fas fa-phone text-danger me-2"></i>Líneas de ayuda en Argentina</h5>
+                    <p><strong>Línea 137:</strong> Atención especializada en violencia familiar y sexual las 24 horas</p>
+                    <p class="mb-0"><strong>Línea 102:</strong> Derechos de niñas, niños y adolescentes</p>
+                </div>
+                
+                <h2 class="mt-5 mb-4">Conclusión</h2>
+                
+                <p>Garantizar la seguridad digital de los más pequeños exige compromiso, educación y diálogo constante. Las tecnologías evolucionan, pero los principios de cuidado, privacidad y acompañamiento parental siguen siendo irremplazables.</p>
+                
+                <p>Enseñáles a navegar el mundo digital con responsabilidad, pensamiento crítico y confianza en su entorno familiar. Así los protegerás y ayudarás a crecer como ciudadanos digitales responsables y seguros.</p>
+                
+                <div class="sources-section">
+                    <h4><i class="fas fa-book me-2"></i>Fuentes confiables utilizadas</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>KPMG España: ¡Sé ciberinteligente! Cómo proteger a tus hijos en Internet. Guía para padres 2025</li>
+                                <li>Save the Children España: Guía para madres y padres, cómo proteger y educar a tus hijos e hijas en el mundo digital 2025</li>
+                                <li>Gobierno de Argentina: Guía para padres, familias y docentes sobre grooming, privacidad y datos personales en internet 2025</li>
+                                <li>UNICEF España: Día de Internet Segura - Consejos para padres</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Kaspersky: Seguridad online para niños</li>
+                                <li>Google Blog: Construyendo un internet seguro para las infancias</li>
+                                <li>INCIBE: Portal de menores</li>
+                                <li>Malwarebytes: Consejos de seguridad en internet para niños</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-top mt-5 pt-4">
+                    <h5>¿Te resultó útil este artículo?</h5>
+                    <button class="btn btn-outline-primary btn-sm me-2"><i class="fas fa-thumbs-up"></i> Sí</button>
+                    <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-thumbs-down"></i> No</button>
+                    <div class="mt-3">
+                        <a href="#" class="text-muted me-3"><i class="fab fa-facebook-f"></i> Compartir</a>
+                        <a href="#" class="text-muted me-3"><i class="fab fa-twitter"></i> Tuitear</a>
+                        <a href="#" class="text-muted"><i class="fas fa-envelope"></i> Enviar por correo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <!-- Related Articles -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3 class="mb-4">Artículos relacionados</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card related-article h-100">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Equilibrio pantallas">
+                        <div class="card-body">
+                            <h5 class="card-title">Equilibrio en el uso de pantallas</h5>
+                            <p class="card-text">Estrategias prácticas para encontrar el equilibrio saludable entre la tecnología y las actividades al aire libre.</p>
+                            <a href="equilibrio-pantallas.html" class="btn btn-link text-primary p-0">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card related-article h-100">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Plataformas educativas">
+                        <div class="card-body">
+                            <h5 class="card-title">Las mejores plataformas educativas para niños</h5>
+                            <p class="card-text">Descubre herramientas digitales que hacen del aprendizaje una experiencia divertida y efectiva.</p>
+                            <a href="#" class="btn btn-link text-primary p-0">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card related-article h-100">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Rutinas escolares">
+                        <div class="card-body">
+                            <h5 class="card-title">Rutinas efectivas para el regreso a clases</h5>
+                            <p class="card-text">Cómo crear hábitos que faciliten la transición de vacaciones al período escolar.</p>
+                            <a href="#" class="btn btn-link text-primary p-0">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Instituto CIMA</h5>
+                    <p>Educación de calidad para el futuro de tus hijos.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/instituto.cima?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white-50">Inicio</a></li>
+                        <li><a href="../index.html#cursos" class="text-white-50">Cursos</a></li>
+                        <li><a href="../blog.html" class="text-white-50">Blog</a></li>
+                        <li><a href="../index.html#contacto" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Dirección de ejemplo 123</li>
+                        <li><i class="fas fa-phone me-2"></i> +54 9 1234 5678</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@institutocima.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Instituto CIMA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

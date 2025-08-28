@@ -1,0 +1,20 @@
+{
+  "name": "cima-landing",
+  "version": "1.0.0",
+  "description": "Landing page para Instituto CIMA - Inglés y Apoyo Escolar",
+  "main": "index.html",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "tsc --watch",
+    "serve": "live-server --port=3000 --open=/index.html"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "@types/node": "^20.0.0",
+    "live-server": "^1.2.2"
+  },
+  "keywords": ["typescript", "landing-page", "education", "bootstrap"],
+  "author": "CIMA Institute",
+  "license": "MIT"
+}
