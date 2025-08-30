@@ -16,7 +16,7 @@ const FacebookConfig = {
     comments: {
         // URL de la página donde aparecerán los comentarios
         // ⚠️ CAMBIA ESTA URL POR LA DE TU SITIO REAL
-        href: window.location.href || 'https://cimaonline-4f144.web.app/',
+        href: window.location.href || 'https://cimaonline-4f144.web.app',
         
         // Número de comentarios a mostrar
         numPosts: 8,

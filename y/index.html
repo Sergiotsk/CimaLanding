@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <meta property="fb:app_id" content="appId"/>
 </head>
 <body>
     <!-- Facebook SDK -->
@@ -601,7 +602,7 @@
                             <div class="facebook-comments-wrapper">
                                 <!-- Facebook Comments Plugin -->
                                 <div class="fb-comments" 
-                                     data-href="https://institutocima.com/testimonios" 
+                                     data-href="https://cimaonline-4f144.web.app" 
                                      data-width="100%" 
                                      data-numposts="8"
                                      data-colorscheme="light"
@@ -708,27 +709,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- Privacy Policy Link Section -->
+        <div class="container text-center mb-5">
+            <small class="text-muted">
+                <i class="fas fa-shield-alt me-2"></i>
+                Al usar el sistema de comentarios, aceptas nuestra 
+                <a href="privacy-policy.html" class="text-decoration-none" target="_blank" id="privacy-policy-link">
+                    Política de Privacidad
+                </a>
+                y las políticas de Facebook. Tus datos están protegidos según nuestras normas de privacidad.
+            </small>
+        </div>
+    
     </section>
 
-    <!-- Privacy Policy Link Section -->
-    <div class="container mb-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="text-center">
-                    <div class="privacy-policy-notice p-3 bg-light rounded-3 border">
-                        <small class="text-muted">
-                            <i class="fas fa-shield-alt me-2"></i>
-                            Al usar el sistema de comentarios, aceptas nuestra 
-                            <a href="privacy-policy.html" class="text-decoration-none fw-bold" target="_blank">
-                                Política de Privacidad
-                            </a>
-                            y las políticas de Facebook. Tus datos están protegidos según nuestras normas de privacidad.
-                        </small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
+   
+       
 
     <!-- Development Mode Indicator -->
     <div class="dev-mode-indicator" id="dev-indicator" style="display: none;">
