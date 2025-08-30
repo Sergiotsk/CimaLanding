@@ -9,36 +9,80 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Facebook SDK (Disabled for localhost development) -->
+    <!-- Facebook SDK -->
     <div id="fb-root"></div>
+    <script src="js/facebook-config.js"></script>
     <script>
-        // Detect if running on localhost
+        // Configuración del plugin de Facebook usando archivo de configuración
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: FacebookConfig.appId,
+                cookie: FacebookConfig.sdk.cookie,
+                xfbml: FacebookConfig.sdk.xfbml,
+                version: FacebookConfig.sdk.version
+            });
+            
+            // Verificar si el plugin se cargó correctamente
+            FB.Event.subscribe('xfbml.render', function() {
+                console.log('✅ Plugin de Facebook cargado correctamente');
+                document.getElementById('fb-loading').style.display = 'none';
+                document.getElementById('fb-fallback').style.display = 'none';
+            });
+            
+            // Manejar errores de carga
+            FB.Event.subscribe('xfbml.error', function() {
+                console.error('❌ Error al cargar el plugin de Facebook');
+                showFacebookFallback();
+            });
+        };
+
+        // Cargar SDK de Facebook
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = FacebookConfig.urls.sdk;
+            js.onerror = function() {
+                console.error('❌ Error al cargar el SDK de Facebook');
+                showFacebookFallback();
+            };
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Función para mostrar el sistema alternativo
+        function showFacebookFallback() {
+            document.getElementById('fb-loading').style.display = 'none';
+            document.getElementById('fb-fallback').style.display = 'block';
+        }
+
+        // Función para reintentar la carga
+        function retryFacebookComments() {
+            document.getElementById('fb-loading').style.display = 'block';
+            document.getElementById('fb-fallback').style.display = 'none';
+            
+            // Recargar la página después de un breve delay
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
+        }
+
+        // Detectar si estamos en desarrollo local
         const isLocalhost = window.location.hostname === 'localhost' || 
                            window.location.hostname === '127.0.0.1' || 
                            window.location.hostname === '' ||
                            window.location.protocol === 'file:';
         
-        if (!isLocalhost) {
-            // Only load Facebook SDK in production
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId: '1234567890123456', // Reemplaza con tu App ID real
-                    cookie: true,
-                    xfbml: true,
-                    version: 'v18.0'
-                });
-            };
-
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/es_LA/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        } else {
-            // For localhost, we'll use the fallback system
-            console.log('🚀 Desarrollo local detectado - usando sistema de comentarios local');
+        if (isLocalhost) {
+            console.log('🚀 Modo desarrollo detectado - mostrando sistema alternativo');
+            // Mostrar indicador de desarrollo
+            document.addEventListener('DOMContentLoaded', function() {
+                const devIndicator = document.getElementById('dev-indicator');
+                if (devIndicator) {
+                    devIndicator.style.display = 'block';
+                }
+                // Mostrar fallback inmediatamente en desarrollo
+                setTimeout(showFacebookFallback, FacebookConfig.development.devDetectionDelay);
+            });
         }
     </script>
     <!-- Navigation -->
@@ -563,7 +607,8 @@
                                      data-colorscheme="light"
                                      data-order-by="social"
                                      data-lazy="true"
-                                     data-mobile="auto">
+                                     data-mobile="auto"
+                                     data-adapt-container-width="true">
                                 </div>
                                 
                                 <!-- Loading indicator -->
@@ -664,6 +709,26 @@
             </div>
         </div>
     </section>
+
+    <!-- Privacy Policy Link Section -->
+    <div class="container mb-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center">
+                    <div class="privacy-policy-notice p-3 bg-light rounded-3 border">
+                        <small class="text-muted">
+                            <i class="fas fa-shield-alt me-2"></i>
+                            Al usar el sistema de comentarios, aceptas nuestra 
+                            <a href="privacy-policy.html" class="text-decoration-none fw-bold" target="_blank">
+                                Política de Privacidad
+                            </a>
+                            y las políticas de Facebook. Tus datos están protegidos según nuestras normas de privacidad.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Development Mode Indicator -->
     <div class="dev-mode-indicator" id="dev-indicator" style="display: none;">

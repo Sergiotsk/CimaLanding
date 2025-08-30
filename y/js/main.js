@@ -907,3 +907,260 @@ function showAlert(message, type = 'info') {
         }, 5000);
     }
 }
+
+/**
+ * Facebook Comments Plugin Management
+ */
+class FacebookCommentsManager {
+    constructor() {
+        this.isLoaded = false;
+        this.retryCount = 0;
+        this.maxRetries = 3;
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.checkFacebookStatus();
+        this.setupStarRating();
+    }
+
+    setupEventListeners() {
+        // Listen for Facebook SDK events
+        if (typeof FB !== 'undefined') {
+            FB.Event.subscribe('xfbml.render', () => {
+                this.onFacebookLoaded();
+            });
+            
+            FB.Event.subscribe('xfbml.error', () => {
+                this.onFacebookError();
+            });
+        }
+
+        // Setup retry button
+        const retryBtn = document.querySelector('[onclick="retryFacebookComments()"]');
+        if (retryBtn) {
+            retryBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.retryLoad();
+            });
+        }
+    }
+
+    checkFacebookStatus() {
+        // Check if Facebook SDK is loaded
+        if (typeof FB !== 'undefined') {
+            this.isLoaded = true;
+            this.hideLoading();
+        } else {
+            // Wait a bit more for SDK to load
+            setTimeout(() => {
+                if (typeof FB === 'undefined') {
+                    this.showFallback();
+                }
+            }, 5000);
+        }
+    }
+
+    onFacebookLoaded() {
+        console.log('✅ Facebook Comments cargados exitosamente');
+        this.isLoaded = true;
+        this.hideLoading();
+        this.hideFallback();
+        this.showSuccessMessage();
+    }
+
+    onFacebookError() {
+        console.error('❌ Error al cargar Facebook Comments');
+        this.showFallback();
+        this.showErrorMessage();
+    }
+
+    hideLoading() {
+        const loading = document.getElementById('fb-loading');
+        if (loading) {
+            loading.style.display = 'none';
+        }
+    }
+
+    hideFallback() {
+        const fallback = document.getElementById('fb-fallback');
+        if (fallback) {
+            fallback.style.display = 'none';
+        }
+    }
+
+    showFallback() {
+        this.hideLoading();
+        const fallback = document.getElementById('fb-fallback');
+        if (fallback) {
+            fallback.style.display = 'block';
+        }
+    }
+
+    retryLoad() {
+        if (this.retryCount >= this.maxRetries) {
+            this.showMaxRetriesMessage();
+            return;
+        }
+
+        this.retryCount++;
+        console.log(`🔄 Reintentando carga de Facebook Comments (${this.retryCount}/${this.maxRetries})`);
+
+        const loading = document.getElementById('fb-loading');
+        const fallback = document.getElementById('fb-fallback');
+        
+        if (loading) loading.style.display = 'block';
+        if (fallback) fallback.style.display = 'none';
+
+        // Force Facebook to re-render
+        if (typeof FB !== 'undefined' && FB.XFBML) {
+            FB.XFBML.parse();
+        }
+
+        // Show retry message
+        this.showRetryMessage();
+    }
+
+    setupStarRating() {
+        const starRating = document.querySelector('.star-rating');
+        if (!starRating) return;
+
+        const stars = starRating.querySelectorAll('i');
+        let currentRating = 0;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                currentRating = index + 1;
+                this.updateStarDisplay(stars, currentRating);
+                starRating.setAttribute('data-rating', currentRating);
+            });
+
+            star.addEventListener('mouseenter', () => {
+                this.updateStarDisplay(stars, index + 1);
+            });
+
+            star.addEventListener('mouseleave', () => {
+                this.updateStarDisplay(stars, currentRating);
+            });
+        });
+    }
+
+    updateStarDisplay(stars, rating) {
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.remove('far');
+                star.classList.add('fas', 'filled');
+            } else {
+                star.classList.remove('fas', 'filled');
+                star.classList.add('far');
+            }
+        });
+    }
+
+    showSuccessMessage() {
+        this.showMessage('¡Plugin de Facebook cargado exitosamente!', 'success');
+    }
+
+    showErrorMessage() {
+        this.showMessage('Error al cargar el plugin de Facebook. Usando sistema alternativo.', 'error');
+    }
+
+    showRetryMessage() {
+        this.showMessage(`Reintentando carga... (${this.retryCount}/${this.maxRetries})`, 'info');
+    }
+
+    showMaxRetriesMessage() {
+        this.showMessage('Se alcanzó el máximo de reintentos. Usando sistema alternativo.', 'warning');
+    }
+
+    showMessage(message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `facebook-${type} mt-3`;
+        messageDiv.innerHTML = `
+            <i class="fas fa-${this.getIconForType(type)}"></i>
+            <p class="mb-0">${message}</p>
+        `;
+
+        const container = document.querySelector('.facebook-comments-container');
+        if (container) {
+            container.insertBefore(messageDiv, container.firstChild);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 5000);
+        }
+    }
+
+    getIconForType(type) {
+        const icons = {
+            success: 'check-circle',
+            error: 'exclamation-circle',
+            warning: 'exclamation-triangle',
+            info: 'info-circle'
+        };
+        return icons[type] || 'info-circle';
+    }
+}
+
+/**
+ * Initialize Facebook Comments Manager when DOM is loaded
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Facebook Comments Manager
+    window.facebookCommentsManager = new FacebookCommentsManager();
+    
+    // Setup form submission for local comments
+    setupLocalCommentForm();
+});
+
+/**
+ * Setup local comment form functionality
+ */
+function setupLocalCommentForm() {
+    const form = document.querySelector('.simple-comment-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = form.querySelector('input[type="text"]').value;
+        const email = form.querySelector('input[type="email"]').value;
+        const comment = form.querySelector('textarea').value;
+        const rating = form.querySelector('.star-rating')?.getAttribute('data-rating') || 0;
+        
+        if (!name || !email || !comment || rating === 0) {
+            showAlert('Por favor completa todos los campos y selecciona una calificación.', 'warning');
+            return;
+        }
+        
+        // Simulate form submission
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Enviando...';
+        
+        setTimeout(() => {
+            // Add comment to local display
+            addLocalComment(name, comment, rating);
+            
+            showAlert('¡Comentario agregado exitosamente!', 'success');
+            form.reset();
+            
+            // Reset star rating
+            const stars = form.querySelectorAll('.star-rating i');
+            stars.forEach(star => {
+                star.classList.remove('fas', 'filled');
+                star.classList.add('far');
+            });
+            form.querySelector('.star-rating')?.removeAttribute('data-rating');
+            
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }, 1500);
+    });
+}

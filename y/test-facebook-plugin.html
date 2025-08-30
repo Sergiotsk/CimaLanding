@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Plugin Facebook - CIMA Landing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .test-section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .test-info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .status-success { background-color: #28a745; }
+        .status-error { background-color: #dc3545; }
+        .status-warning { background-color: #ffc107; }
+        .status-info { background-color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">
+                    <i class="fab fa-facebook text-primary me-2"></i>
+                    Prueba del Plugin de Facebook
+                </h1>
+                
+                <div class="alert alert-info">
+                    <h5><i class="fas fa-info-circle me-2"></i>Página de Prueba</h5>
+                    <p class="mb-0">Esta página te permite probar el plugin de Facebook para comentarios antes de implementarlo en tu sitio principal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Section 1: Facebook SDK Status -->
+        <div class="test-section">
+            <h3><i class="fas fa-code me-2"></i>Estado del SDK de Facebook</h3>
+            <div class="test-info">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Configuración:</h6>
+                        <ul class="list-unstyled">
+                            <li><span class="status-indicator status-info"></span>App ID: <code id="app-id-status">Verificando...</code></li>
+                            <li><span class="status-indicator status-info"></span>SDK Version: <code id="sdk-version-status">Verificando...</code></li>
+                            <li><span class="status-indicator status-info"></span>Estado: <code id="sdk-status">Verificando...</code></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Entorno:</h6>
+                        <ul class="list-unstyled">
+                            <li><span class="status-indicator status-info"></span>Host: <code id="host-status">Verificando...</code></li>
+                            <li><span class="status-indicator status-info"></span>Protocolo: <code id="protocol-status">Verificando...</code></li>
+                            <li><span class="status-indicator status-info"></span>Modo: <code id="mode-status">Verificando...</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Section 2: Facebook Comments Plugin -->
+        <div class="test-section">
+            <h3><i class="fas fa-comments me-2"></i>Plugin de Comentarios</h3>
+            <div class="test-info">
+                <p>El plugin de comentarios de Facebook debería aparecer a continuación. Si no se carga, se mostrará el sistema alternativo.</p>
+            </div>
+            
+            <!-- Facebook Comments Container -->
+            <div class="facebook-comments-container">
+                <div class="facebook-comments-wrapper">
+                    <!-- Facebook Comments Plugin -->
+                    <div class="fb-comments" 
+                         data-href="https://institutocima.com/testimonios" 
+                         data-width="100%" 
+                         data-numposts="5"
+                         data-colorscheme="light"
+                         data-order-by="social"
+                         data-lazy="true"
+                         data-mobile="auto"
+                         data-adapt-container-width="true">
+                    </div>
+                    
+                    <!-- Loading indicator -->
+                    <div class="facebook-loading" id="fb-loading">
+                        <div class="d-flex justify-content-center align-items-center py-4">
+                            <div class="spinner-border text-primary me-3" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                            <span class="text-muted">Cargando comentarios de Facebook...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Fallback System -->
+                    <div class="facebook-fallback" id="fb-fallback" style="display: none;">
+                        <div class="alert alert-info border-0 shadow-sm">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="facebook-icon-wrapper me-3">
+                                    <i class="fab fa-facebook-f"></i>
+                                </div>
+                                <div>
+                                    <h5 class="alert-heading mb-1">¡Únete a nuestra comunidad!</h5>
+                                    <p class="mb-0">Comparte tu experiencia y lee más testimonios en Facebook</p>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="https://www.facebook.com/profile.php?id=100063805800155&sk=about" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-facebook-f me-1"></i> Ir a Facebook
+                                </a>
+                                <button class="btn btn-outline-primary btn-sm" onclick="retryFacebookComments()">
+                                    <i class="fas fa-redo me-1"></i> Reintentar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Alternative comment form -->
+                        <div class="mt-4">
+                            <h6>Déjanos tu comentario de prueba:</h6>
+                            <form class="simple-comment-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" placeholder="Tu nombre" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="email" class="form-control" placeholder="Tu email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="rating-input">
+                                        <label class="form-label">Tu calificación:</label>
+                                        <div class="star-rating">
+                                            <i class="far fa-star" data-rating="1"></i>
+                                            <i class="far fa-star" data-rating="2"></i>
+                                            <i class="far fa-star" data-rating="3"></i>
+                                            <i class="far fa-star" data-rating="4"></i>
+                                            <i class="far fa-star" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="4" placeholder="Comparte tu experiencia con Instituto CIMA..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-1"></i> Enviar Comentario de Prueba
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Section 3: Console Logs -->
+        <div class="test-section">
+            <h3><i class="fas fa-terminal me-2"></i>Logs de Consola</h3>
+            <div class="test-info">
+                <p>Abre la consola del navegador (F12) para ver los logs detallados del plugin.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Comandos útiles:</h6>
+                        <ul class="list-unstyled">
+                            <li><code>FB.getLoginStatus()</code> - Estado de login</li>
+                            <li><code>FB.XFBML.parse()</code> - Re-renderizar plugin</li>
+                            <li><code>window.facebookCommentsManager</code> - Gestor del plugin</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Variables globales:</h6>
+                        <ul class="list-unstyled">
+                            <li><code>window.FacebookConfig</code> - Configuración</li>
+                            <li><code>window.FB</code> - SDK de Facebook</li>
+                            <li><code>window.isLocalhost</code> - Modo desarrollo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Section 4: Troubleshooting -->
+        <div class="test-section">
+            <h3><i class="fas fa-tools me-2"></i>Solución de Problemas</h3>
+            <div class="test-info">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Problemas comunes:</h6>
+                        <ul>
+                            <li>App ID incorrecto</li>
+                            <li>Dominio no configurado</li>
+                            <li>Plugin no habilitado</li>
+                            <li>Bloqueadores de anuncios</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Soluciones:</h6>
+                        <ul>
+                            <li>Verificar configuración</li>
+                            <li>Revisar consola del navegador</li>
+                            <li>Deshabilitar bloqueadores</li>
+                            <li>Usar modo incógnito</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="text-center mt-4 mb-4">
+            <a href="index.html" class="btn btn-primary me-2">
+                <i class="fas fa-home me-1"></i> Volver al Inicio
+            </a>
+            <a href="README-FACEBOOK-PLUGIN.md" class="btn btn-outline-primary" target="_blank">
+                <i class="fas fa-book me-1"></i> Ver Documentación
+            </a>
+        </div>
+    </div>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script src="js/facebook-config.js"></script>
+    <script>
+        // Configuración del plugin de Facebook para pruebas
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: FacebookConfig.appId,
+                cookie: FacebookConfig.sdk.cookie,
+                xfbml: FacebookConfig.sdk.xfbml,
+                version: FacebookConfig.sdk.version
+            });
+            
+            // Verificar estado del SDK
+            updateSDKStatus();
+            
+            // Verificar si el plugin se cargó correctamente
+            FB.Event.subscribe('xfbml.render', function() {
+                console.log('✅ Plugin de Facebook cargado correctamente');
+                document.getElementById('fb-loading').style.display = 'none';
+                document.getElementById('fb-fallback').style.display = 'none';
+                updateSDKStatus();
+            });
+            
+            // Manejar errores de carga
+            FB.Event.subscribe('xfbml.error', function() {
+                console.error('❌ Error al cargar el plugin de Facebook');
+                showFacebookFallback();
+                updateSDKStatus();
+            });
+        };
+
+        // Cargar SDK de Facebook
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = FacebookConfig.urls.sdk;
+            js.onerror = function() {
+                console.error('❌ Error al cargar el SDK de Facebook');
+                showFacebookFallback();
+                updateSDKStatus();
+            };
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Función para mostrar el sistema alternativo
+        function showFacebookFallback() {
+            document.getElementById('fb-loading').style.display = 'none';
+            document.getElementById('fb-fallback').style.display = 'block';
+        }
+
+        // Función para reintentar la carga
+        function retryFacebookComments() {
+            document.getElementById('fb-loading').style.display = 'block';
+            document.getElementById('fb-fallback').style.display = 'none';
+            
+            // Recargar la página después de un breve delay
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
+        }
+
+        // Actualizar estado del SDK
+        function updateSDKStatus() {
+            // App ID
+            const appIdElement = document.getElementById('app-id-status');
+            if (appIdElement) {
+                appIdElement.textContent = FacebookConfig.appId;
+                appIdElement.className = FacebookConfig.appId !== '1234567890123456' ? 'text-success' : 'text-warning';
+            }
+
+            // SDK Version
+            const sdkVersionElement = document.getElementById('sdk-version-status');
+            if (sdkVersionElement) {
+                sdkVersionElement.textContent = FacebookConfig.sdk.version;
+                sdkVersionElement.className = 'text-success';
+            }
+
+            // SDK Status
+            const sdkStatusElement = document.getElementById('sdk-status');
+            if (sdkStatusElement) {
+                if (typeof FB !== 'undefined') {
+                    sdkStatusElement.textContent = 'Cargado';
+                    sdkStatusElement.className = 'text-success';
+                } else {
+                    sdkStatusElement.textContent = 'No cargado';
+                    sdkStatusElement.className = 'text-danger';
+                }
+            }
+
+            // Host
+            const hostElement = document.getElementById('host-status');
+            if (hostElement) {
+                hostElement.textContent = window.location.hostname || 'localhost';
+                hostElement.className = 'text-info';
+            }
+
+            // Protocol
+            const protocolElement = document.getElementById('protocol-status');
+            if (protocolElement) {
+                protocolElement.textContent = window.location.protocol;
+                protocolElement.className = 'text-info';
+            }
+
+            // Mode
+            const modeElement = document.getElementById('mode-status');
+            if (modeElement) {
+                const isLocalhost = window.location.hostname === 'localhost' || 
+                                   window.location.hostname === '127.0.0.1' || 
+                                   window.location.hostname === '' ||
+                                   window.location.protocol === 'file:';
+                
+                modeElement.textContent = isLocalhost ? 'Desarrollo' : 'Producción';
+                modeElement.className = isLocalhost ? 'text-warning' : 'text-success';
+            }
+        }
+
+        // Detectar si estamos en desarrollo local
+        const isLocalhost = window.location.hostname === 'localhost' || 
+                           window.location.hostname === '127.0.0.1' || 
+                           window.location.hostname === '' ||
+                           window.location.protocol === 'file:';
+        
+        if (isLocalhost) {
+            console.log('🚀 Modo desarrollo detectado - mostrando sistema alternativo');
+            // Mostrar fallback inmediatamente en desarrollo
+            setTimeout(showFacebookFallback, FacebookConfig.development.devDetectionDelay);
+        }
+
+        // Actualizar estado cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSDKStatus();
+        });
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

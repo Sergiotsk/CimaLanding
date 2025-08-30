@@ -1056,3 +1056,300 @@ h2::after {
         padding: 0.4rem 0.8rem;
     }
 }
+
+/* Facebook Comments Plugin Styles */
+.facebook-comments-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.facebook-comments-wrapper {
+    position: relative;
+    min-height: 200px;
+}
+
+/* Facebook Comments Plugin */
+.fb-comments {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #e4e6ea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.fb-comments iframe {
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Loading State */
+.facebook-loading {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.facebook-loading:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+}
+
+/* Fallback System */
+.facebook-fallback {
+    animation: slideInUp 0.5s ease-out;
+}
+
+.facebook-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1877f2, #42a5f5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+}
+
+/* Enhanced Comment Form */
+.simple-comment-form {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.simple-comment-form .form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.simple-comment-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.15);
+    transform: translateY(-1px);
+}
+
+.simple-comment-form .btn {
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.simple-comment-form .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+}
+
+/* Star Rating System */
+.rating-input {
+    margin-bottom: 1rem;
+}
+
+.star-rating {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.star-rating i {
+    font-size: 1.5rem;
+    color: #dee2e6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.25rem;
+}
+
+.star-rating i:hover {
+    color: #ffc107;
+    transform: scale(1.1);
+}
+
+.star-rating i.active {
+    color: #ffc107;
+}
+
+.star-rating i.filled {
+    color: #ffc107;
+}
+
+/* Facebook Comments Responsive */
+@media (max-width: 767.98px) {
+    .facebook-comments-container {
+        padding: 1rem;
+        margin: 0 -0.5rem;
+        border-radius: 12px;
+    }
+    
+    .facebook-comments-wrapper {
+        min-height: 150px;
+    }
+    
+    .fb-comments {
+        padding: 0.5rem;
+    }
+    
+    .simple-comment-form {
+        padding: 1rem;
+    }
+    
+    .star-rating i {
+        font-size: 1.25rem;
+    }
+    
+    .facebook-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Facebook Comments Animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Facebook Comments Loading Animation */
+.facebook-loading .spinner-border {
+    width: 2rem;
+    height: 2rem;
+    border-width: 0.2rem;
+}
+
+/* Facebook Comments Error State */
+.facebook-error {
+    background: linear-gradient(135deg, #fff5f5, #fed7d7);
+    border: 1px solid #feb2b2;
+    color: #c53030;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.facebook-error i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Facebook Comments Success State */
+.facebook-success {
+    background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+    border: 1px solid #9ae6b4;
+    color: #22543d;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.facebook-success i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Privacy Policy Notice Styles */
+.privacy-policy-notice {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    border: 1px solid rgba(0, 102, 204, 0.1) !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.privacy-policy-notice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 102, 204, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.privacy-policy-notice:hover::before {
+    left: 100%;
+}
+
+.privacy-policy-notice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.1);
+    border-color: rgba(0, 102, 204, 0.2) !important;
+}
+
+.privacy-policy-notice a {
+    color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.privacy-policy-notice a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+}
+
+.privacy-policy-notice a::after {
+    content: '↗';
+    font-size: 0.8em;
+    margin-left: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.privacy-policy-notice a:hover::after {
+    opacity: 1;
+}
+
+.privacy-policy-notice .fas {
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+
+/* Privacy Policy Notice Responsive */
+@media (max-width: 767.98px) {
+    .privacy-policy-notice {
+        margin: 0 1rem;
+        padding: 1rem !important;
+    }
+    
+    .privacy-policy-notice small {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}
+
+/* Privacy Policy Notice Animation */
+@keyframes privacyNoticeGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(0, 102, 204, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 102, 204, 0.2);
+    }
+}
+
+.privacy-policy-notice:focus-within {
+    animation: privacyNoticeGlow 2s ease-in-out infinite;
+}
