@@ -128,3 +128,4 @@ data-href="https://tu-dominio-real.com/testimonios"
 **Última actualización:** Plugin configurado con App ID `1446295133243173`
 **Estado:** ✅ LISTO PARA PRODUCCIÓN
 **Próximo paso:** Cambiar URLs y subir a servidor web
+

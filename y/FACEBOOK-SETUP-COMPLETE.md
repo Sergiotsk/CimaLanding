@@ -106,3 +106,4 @@
 ---
 
 **¡Tu plugin estará completamente funcional después de completar estos pasos!**
+
