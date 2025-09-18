@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - CimaOnline</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .courses-hero {
+            background: linear-gradient(rgba(13,110,253,.85), rgba(13,110,253,.85)),
+                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 110px 0 80px;
+            margin-bottom: 40px;
+        }
+        .course-card { transition: transform .2s, box-shadow .2s; height: 100%; }
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,.1); }
+        .course-img { height: 180px; object-fit: cover; }
+        .badge-level { position: absolute; top: 12px; left: 12px; }
+        .section-title { border-left: 4px solid #0d6efd; padding-left: 12px; }
+        .feature-list li { margin-bottom: .35rem; }
+        .price { font-weight: 700; color: #0d6efd; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="imgs/LOGO_20_05_2025-RB.png" alt="Logo Instituto CIMA" class="me-2" style="height: 60px; width: auto;">
+                CimaOnline
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cursos.html">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="courses-hero text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3">Nuestros Cursos</h1>
+            <p class="lead mb-4">Inglés para todas las edades, apoyo escolar y tecnología para el futuro.</p>
+            <a href="#ingles" class="btn btn-warning btn-lg me-2">Ver Inglés</a>
+            <a href="#apoyo" class="btn btn-outline-light btn-lg me-2">Apoyo Escolar</a>
+            <a href="#tecnologia" class="btn btn-outline-light btn-lg">Tecnología</a>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <!-- Inglés -->
+        <section id="ingles" class="mb-5">
+            <h2 class="section-title mb-4">Inglés por niveles</h2>
+            <p class="text-muted">7 niveles pensados para cada etapa de crecimiento. Enfoque comunicativo, materiales modernos y seguimiento personalizado.</p>
+            <div class="row g-4 mt-2">
+                <!-- Prekinder -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-warning text-dark badge-level">Prekinder</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Prekinder English">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés Inicial (3–5 años)</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Juegos, canciones y movimiento</li>
+                                <li>Vocabulario básico y rutinas</li>
+                                <li>Sesiones cortas y dinámicas</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kids 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-success badge-level">Kids 1</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Kids 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés para Niños 1</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Comprensión auditiva básica</li>
+                                <li>Lectoescritura inicial</li>
+                                <li>Proyectos creativos</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kids 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-success badge-level">Kids 2</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1523244898830-03bdb2b1d5d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Kids 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés para Niños 2</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Vocabulario ampliado</li>
+                                <li>Gramática elemental</li>
+                                <li>Conversación guiada</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kids 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-success badge-level">Kids 3</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Kids 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés para Niños 3</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Producción oral con confianza</li>
+                                <li>Comprensión lectora</li>
+                                <li>Preparación Teens</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teens 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-info text-dark badge-level">Teens 1</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Teens 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés para Adolescentes 1</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Comunicación cotidiana</li>
+                                <li>Gramática funcional</li>
+                                <li>Proyectos colaborativos</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teens 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-info text-dark badge-level">Teens 2</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Teens 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés para Adolescentes 2</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Fluidez y precisión</li>
+                                <li>Comprensión avanzada</li>
+                                <li>Preparación exámenes</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teens 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm position-relative">
+                        <span class="badge bg-info text-dark badge-level">Teens 3</span>
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Teens 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés para Adolescentes 3</h5>
+                            <ul class="feature-list ps-3">
+                                <li>Speaking avanzado</li>
+                                <li>Academic writing</li>
+                                <li>Orientación Cambridge</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apoyo Escolar -->
+        <section id="apoyo" class="mb-5">
+            <h2 class="section-title mb-4">Clases de Apoyo Escolar</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1523244610463-39f2b99c7f47?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Matemática">
+                        <div class="card-body">
+                            <h5 class="card-title">Matemática</h5>
+                            <p class="mb-2 text-muted">Primaria y Secundaria</p>
+                            <ul class="feature-list ps-3">
+                                <li>Resolución de problemas</li>
+                                <li>Preparación para pruebas</li>
+                                <li>Refuerzo de bases</li>
+                            </ul>
+                            <a href="index.html#contacto" class="btn btn-outline-primary btn-sm">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Lengua y Literatura">
+                        <div class="card-body">
+                            <h5 class="card-title">Lengua y Literatura</h5>
+                            <p class="mb-2 text-muted">Comprensión y redacción</p>
+                            <ul class="feature-list ps-3">
+                                <li>Comprensión lectora</li>
+                                <li>Escritura guiada</li>
+                                <li>Gramática práctica</li>
+                            </ul>
+                            <a href="index.html#contacto" class="btn btn-outline-primary btn-sm">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Ciencias">
+                        <div class="card-body">
+                            <h5 class="card-title">Ciencias</h5>
+                            <p class="mb-2 text-muted">Física, Química y Biología</p>
+                            <ul class="feature-list ps-3">
+                                <li>Conceptos clave</li>
+                                <li>Laboratorio virtual</li>
+                                <li>Guías y resúmenes</li>
+                            </ul>
+                            <a href="index.html#contacto" class="btn btn-outline-primary btn-sm">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnología -->
+        <section id="tecnologia" class="mb-5">
+            <h2 class="section-title mb-4">Tecnología</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Informática para niños y adolescentes">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Informática para Niños y Adolescentes</h5>
+                            <p class="text-muted">Alfabetización digital, ofimática, programación por bloques y seguridad online.</p>
+                            <ul class="feature-list ps-3">
+                                <li>Scratch y pensamiento computacional</li>
+                                <li>Herramientas Google/Microsoft</li>
+                                <li>Hábitos digitales saludables</li>
+                            </ul>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1551281044-8a351b62d7b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Introducción a IA para adultos">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Introducción a IA para Adultos</h5>
+                            <p class="text-muted">Curso práctico para incorporar IA en el trabajo y la vida cotidiana (sin requerir programación).</p>
+                            <ul class="feature-list ps-3">
+                                <li>Conceptos clave y usos reales</li>
+                                <li>Herramientas de IA generativa</li>
+                                <li>Privacidad y ética</li>
+                            </ul>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-primary btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extras -->
+        <section id="extras" class="mb-5">
+            <h2 class="section-title mb-4">Cursos y Talleres Extras</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Conversation Club">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Conversation Club</h5>
+                            <p class="text-muted">Práctica conversacional por niveles con docentes nativos y locales.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-outline-primary btn-sm">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Preparación Cambridge">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Preparación Cambridge</h5>
+                            <p class="text-muted">Entrenamiento para exámenes YLE, KET, PET y FCE.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-outline-primary btn-sm">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card course-card border-0 shadow-sm h-100">
+                        <img class="card-img-top course-img" src="https://images.unsplash.com/photo-1596461404969-9ae70b0ae5c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Summer Camp">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Summer Camp Bilingüe</h5>
+                            <p class="text-muted">Actividades lúdicas en inglés durante el receso escolar.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="price">$</span>
+                                <a href="index.html#contacto" class="btn btn-outline-primary btn-sm">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-5 bg-light rounded-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h3 class="mb-2">¿Listo para inscribirte?</h3>
+                        <p class="mb-0 text-muted">Escribinos y te ayudamos a elegir el nivel adecuado y los mejores horarios.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                        <a href="index.html#contacto" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane me-2"></i>Contactar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>CimaOnline</h5>
+                    <p>Educación de calidad para el futuro de tus hijos.</p>
+                    <div class="social-links d-flex gap-3">
+                        <a href="https://www.facebook.com/profile.php?id=100063805800155" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/instituto.cima?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://wa.me/541161922350" target="_blank" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50" style="text-decoration: none;">Inicio</a></li>
+                        <li><a href="cursos.html" class="text-white-50" style="text-decoration: none;">Cursos</a></li>
+                        <li><a href="blog.html" class="text-white-50" style="text-decoration: none;">Blog</a></li>
+                        <li><a href="index.html#contacto" class="text-white-50" style="text-decoration: none;">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Cristiania 3294,I.Casanova,Buenos Aires.</li>
+                        <li><i class="fas fa-phone me-2"></i> +54 9 1161922350</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@cimaonline.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy;2025 CimaOnline. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
