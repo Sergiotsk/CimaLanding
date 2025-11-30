@@ -102,7 +102,7 @@ CimaOnline/
 ├── package.json               # Dependencias y scripts
 ├── .gitignore                 # Archivos ignorados por Git
 ├── README.md                  # Este archivo
-└── GITHUB-SETUP.md            # Guía para subir a GitHub
+
 ```
 
 ## 🔧 Scripts Disponibles
