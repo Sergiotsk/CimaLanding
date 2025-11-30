@@ -192,3 +192,8 @@ temp/
 *.bak
 *.backup
 *.old
+
+
+#github-seput.md
+GITHUB-SETUP.md
+
