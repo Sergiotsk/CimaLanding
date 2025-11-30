@@ -3,42 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIMAweb - Inglés y Apoyo Escolar</title>
+    <title>CimaOnline - Inglés y Apoyo Escolar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <meta property="fb:app_id" content="appId"/>
 </head>
 <body>
-    <!-- Facebook SDK (Disabled for localhost development) -->
+    <!-- Facebook SDK -->
     <div id="fb-root"></div>
+    <script src="js/facebook-config.js"></script>
     <script>
-        // Detect if running on localhost
+        // Configuración del plugin de Facebook usando archivo de configuración
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: FacebookConfig.appId,
+                cookie: FacebookConfig.sdk.cookie,
+                xfbml: FacebookConfig.sdk.xfbml,
+                version: FacebookConfig.sdk.version
+            });
+            
+            // Verificar si el plugin se cargó correctamente
+            FB.Event.subscribe('xfbml.render', function() {
+                console.log('✅ Plugin de Facebook cargado correctamente');
+                document.getElementById('fb-loading').style.display = 'none';
+                document.getElementById('fb-fallback').style.display = 'none';
+            });
+            
+            // Manejar errores de carga
+            FB.Event.subscribe('xfbml.error', function() {
+                console.error('❌ Error al cargar el plugin de Facebook');
+                showFacebookFallback();
+            });
+        };
+
+        // Cargar SDK de Facebook
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = FacebookConfig.urls.sdk;
+            js.onerror = function() {
+                console.error('❌ Error al cargar el SDK de Facebook');
+                showFacebookFallback();
+            };
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Función para mostrar el sistema alternativo
+        function showFacebookFallback() {
+            document.getElementById('fb-loading').style.display = 'none';
+            document.getElementById('fb-fallback').style.display = 'block';
+        }
+
+        // Función para reintentar la carga
+        function retryFacebookComments() {
+            document.getElementById('fb-loading').style.display = 'block';
+            document.getElementById('fb-fallback').style.display = 'none';
+            
+            // Recargar la página después de un breve delay
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
+        }
+
+        // Detectar si estamos en desarrollo local
         const isLocalhost = window.location.hostname === 'localhost' || 
                            window.location.hostname === '127.0.0.1' || 
                            window.location.hostname === '' ||
                            window.location.protocol === 'file:';
         
-        if (!isLocalhost) {
-            // Only load Facebook SDK in production
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId: '1234567890123456', // Reemplaza con tu App ID real
-                    cookie: true,
-                    xfbml: true,
-                    version: 'v18.0'
-                });
-            };
-
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/es_LA/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        } else {
-            // For localhost, we'll use the fallback system
-            console.log('🚀 Desarrollo local detectado - usando sistema de comentarios local');
+        if (isLocalhost) {
+            console.log('🚀 Modo desarrollo detectado - mostrando sistema alternativo');
+            // Mostrar indicador de desarrollo
+            document.addEventListener('DOMContentLoaded', function() {
+                const devIndicator = document.getElementById('dev-indicator');
+                if (devIndicator) {
+                    devIndicator.style.display = 'block';
+                }
+                // Mostrar fallback inmediatamente en desarrollo
+                setTimeout(showFacebookFallback, FacebookConfig.development.devDetectionDelay);
+            });
         }
     </script>
     <!-- Navigation -->
@@ -46,7 +91,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="imgs/LOGO_20_05_2025-RB.png" alt="Logo Instituto CIMA" class="me-2" style="height: 60px; width: auto;">
-                Cimaweb
+                CimaOnline
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -54,7 +99,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursos.html">Cursos</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
@@ -557,13 +602,14 @@
                             <div class="facebook-comments-wrapper">
                                 <!-- Facebook Comments Plugin -->
                                 <div class="fb-comments" 
-                                     data-href="https://institutocima.com/testimonios" 
+                                     data-href="https://cimaonline-4f144.web.app" 
                                      data-width="100%" 
                                      data-numposts="8"
                                      data-colorscheme="light"
                                      data-order-by="social"
                                      data-lazy="true"
-                                     data-mobile="auto">
+                                     data-mobile="auto"
+                                     data-adapt-container-width="true">
                                 </div>
                                 
                                 <!-- Loading indicator -->
@@ -663,7 +709,14 @@
                 </div>
             </div>
         </div>
+
+       <!--/POLITICAS DE PRIVACIDAD-->
+    
     </section>
+
+  
+   
+       
 
     <!-- Development Mode Indicator -->
     <div class="dev-mode-indicator" id="dev-indicator" style="display: none;">
@@ -710,7 +763,7 @@
                                 </div>
                                 <div>
                                     <h6 class="mb-1">Dirección</h6>
-                                    <p class="mb-0 text-muted">Av. Principal 1234, Ciudad</p>
+                                    <p class="mb-0 text-muted">Cristiania 3294,I.Casanova,Buenos Aires.</p>
                                 </div>
                             </div>
                             <div class="d-flex mb-4">
@@ -719,7 +772,7 @@
                                 </div>
                                 <div>
                                     <h6 class="mb-1">Teléfono</h6>
-                                    <p class="mb-0 text-muted">+54 9 11 1234-5678</p>
+                                    <p class="mb-0 text-muted">+54 9 1161922350</p>
                                 </div>
                             </div>
                             <div class="d-flex mb-4">
@@ -728,15 +781,15 @@
                                 </div>
                                 <div>
                                     <h6 class="mb-1">Email</h6>
-                                    <p class="mb-0 text-muted">info@institutocima.com</p>
+                                    <p class="mb-0 text-muted">info@cimaonline.com</p>
                                 </div>
                             </div>
                             <div class="mt-4">
                                 <h6 class="mb-3">Síguenos en redes</h6>
                                 <div class="d-flex gap-3">
-                                    <a href="#" class="text-primary"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                    <a href="#" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
-                                    <a href="#" class="text-primary"><i class="fab fa-whatsapp fa-lg"></i></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100063805800155" target="_blank" class="text-primary"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="https://www.instagram.com/instituto.cima?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                                    <a href="https://wa.me/541161922350" target="_blank" class="text-primary"><i class="fab fa-whatsapp fa-lg"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -748,8 +801,9 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
+        
         <div class="container text-center">
-            <p>&copy; 2025 Instituto CIMA. Todos los derechos reservados.</p>
+            <p>&copy; 2025 CimaOnline. Todos los derechos reservados.</p>
         </div>
     </footer>
 
