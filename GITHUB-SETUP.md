@@ -1,6 +1,6 @@
-# 🚀 Guía para Subir CimaLanding a GitHub
+# 🚀 Guía para Subir CimaOnline a GitHub
 
-Esta guía te ayudará a subir tu proyecto CimaLanding a GitHub de forma segura como repositorio público.
+Esta guía te ayudará a subir tu proyecto CimaOnline a GitHub de forma segura como repositorio público.
 
 ## ✅ Preparación Completada
 
@@ -19,7 +19,7 @@ Ya se han realizado los siguientes pasos de seguridad:
 2. Haz clic en el botón **"+"** en la esquina superior derecha
 3. Selecciona **"New repository"**
 4. Configura el repositorio:
-   - **Repository name**: `CimaLanding` (o el nombre que prefieras)
+   - **Repository name**: `CimaOnline`
    - **Description**: "Landing page para Instituto CIMA - Inglés y Apoyo Escolar"
    - **Visibility**: Selecciona **Public** ✅
    - **NO** marques "Initialize this repository with a README" (ya tienes uno)
@@ -31,8 +31,11 @@ Ya se han realizado los siguientes pasos de seguridad:
 Después de crear el repositorio, GitHub te mostrará instrucciones. Usa estas:
 
 ```bash
-# Agregar el repositorio remoto (reemplaza TU-USUARIO con tu nombre de usuario de GitHub)
-git remote add origin https://github.com/TU-USUARIO/CimaLanding.git
+# Verificar el repositorio remoto configurado
+git remote -v
+
+# Si necesitas cambiar el remoto:
+# git remote set-url origin https://github.com/Sergiotsk/CimaOnline.git
 
 # Verificar que se agregó correctamente
 git remote -v
@@ -102,10 +105,10 @@ git push
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/TU-USUARIO/CimaLanding.git
+git clone https://github.com/Sergiotsk/CimaOnline.git
 
 # Entrar a la carpeta
-cd CimaLanding
+cd CimaOnline
 
 # Instalar dependencias
 npm install
@@ -137,7 +140,7 @@ npm run dev
 git remote remove origin
 
 # Agregar el nuevo remoto
-git remote add origin https://github.com/TU-USUARIO/CimaLanding.git
+git remote add origin https://github.com/Sergiotsk/CimaOnline.git
 ```
 
 ### Error: "failed to push some refs"
@@ -161,4 +164,4 @@ git reset HEAD~1
 
 ---
 
-**¡Listo!** Tu proyecto CimaLanding está preparado para ser público en GitHub de forma segura. 🎉
+**¡Listo!** Tu proyecto CimaOnline está preparado para ser público en GitHub de forma segura. 🎉

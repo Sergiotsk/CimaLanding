@@ -1,4 +1,4 @@
-# CimaLanding
+# CimaOnline
 
 Landing page moderna y responsive para Instituto CIMA - Inglés y Apoyo Escolar.
 
@@ -46,8 +46,8 @@ Este repositorio es público. **NO incluyas credenciales sensibles** en el códi
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/TU-USUARIO/CimaLanding.git
-   cd CimaLanding
+   git clone https://github.com/Sergiotsk/CimaOnline.git
+   cd CimaOnline
    ```
 
 2. **Instalar dependencias:**
@@ -68,7 +68,7 @@ Este repositorio es público. **NO incluyas credenciales sensibles** en el códi
 ## 📁 Estructura del Proyecto
 
 ```
-CimaLanding/
+CimaOnline/
 ├── y/                          # Directorio público (hosting)
 │   ├── index.html             # Página principal
 │   ├── blog.html              # Página del blog
