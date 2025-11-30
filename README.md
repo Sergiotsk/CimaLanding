@@ -12,6 +12,29 @@ Landing page para Instituto CIMA - Inglés y Apoyo Escolar, ahora con TypeScript
 - **Testimonios**: Carousels interactivos con comentarios
 - **Facebook Comments**: Integración con comentarios de Facebook (con fallback local)
 
+## 🔒 Seguridad y Configuración
+
+### ⚠️ IMPORTANTE: Antes de Desplegar a Producción
+
+Este repositorio es público. **NO incluyas credenciales sensibles** en el código. Antes de usar en producción:
+
+1. **Facebook App ID** (`y/js/facebook-config.js`):
+   - El App ID actual es público y solo debe usarse para desarrollo
+   - Crea tu propia aplicación en [Facebook Developers](https://developers.facebook.com/)
+   - Reemplaza el `appId` en `facebook-config.js` con tu propio App ID
+   - Configura los dominios permitidos en tu app de Facebook
+
+2. **Firebase** (`.firebaserc`):
+   - El proyecto Firebase está configurado para `cimaonline-4f144`
+   - Si clonas este proyecto, crea tu propio proyecto Firebase
+   - Ejecuta `firebase init` para configurar tu proyecto
+   - Las reglas de seguridad de Firebase deben configurarse apropiadamente
+
+3. **Variables de Entorno**:
+   - Nunca subas archivos `.env` al repositorio
+   - Usa variables de entorno para información sensible
+   - El `.gitignore` ya está configurado para proteger estos archivos
+
 ## 📋 Requisitos
 
 - Node.js (versión 14 o superior)
